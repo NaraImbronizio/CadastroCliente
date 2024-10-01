@@ -1,0 +1,86 @@
+﻿@model IEnumerable<CadastroCliente.Models.Cliente>
+
+@{
+    ViewData["Title"] = "Lista Clientes";
+}
+<h1 style="text-align:center">Clientes</h1>
+
+<table class="table" style="background-color: black!important; color: white!important">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Telefone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Logradouro)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Numero)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Complemento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Bairro)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cidade)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Estado)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cep)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @item.Name
+                </td>
+                <td>
+                    @item.Telefone
+                </td>
+                <td>
+                    @item.Email
+                </td>
+                <td>
+                    @item.Logradouro
+                </td>
+                <td>
+                    @item.Numero
+                </td>
+                <td>
+                    @item.Complemento
+                </td>
+                <td>
+                    @item.Bairro
+                </td>
+                <td>
+                    @item.Cidade
+                </td>
+                <td>
+                    @item.Estado
+                </td>
+                <td>
+                    @item.Cep
+                </td>
+                <td>
+                    <a class="btn btn-outline-primary btn-sm" asp-action="Editar" asp-route-id="@item.Id" style="color: white!important">Editar</a>
+                    <a class="btn btn-outline-danger text-white btn-sm" asp-action="Apagar" asp-route-id="@item.Id" style="color: white!important">Apagar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+
+</table>
